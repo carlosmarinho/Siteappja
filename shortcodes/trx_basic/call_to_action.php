@@ -52,7 +52,8 @@ if (!function_exists('prohost_sc_call_to_action')) {
 			"left" => "",
 			"right" => "",
 			"money" => "",
-			"period" => ""
+			"period" => "",
+			"target" => ""
 		), $atts)));
 	
 		if (empty($id)) $id = "sc_call_to_action_".str_replace('.', '', mt_rand());
@@ -120,20 +121,22 @@ if (!function_exists('prohost_sc_call_to_action')) {
 		$need_columns = ($featured || $style==2) && !in_array($align, array('center', 'none'))
 							? ($style==2 ? 4 : 2)
 							: 0;
+		if(! empty($target))
+			$target = 'target="' . $target . '"';
 		
 		$buttons = (!empty($link) || !empty($link2) 
 						? '<div class="sc_call_to_action_buttons sc_item_buttons'.($need_columns && $style==2 ? ' column-1_'.esc_attr($need_columns) : '').'">'
 							. (!empty($link) 
-								? '<div class="sc_call_to_action_button sc_item_button">'.do_shortcode('[trx_button link="'.esc_url($link).'" icon="icon-right"]'.esc_html($link_caption).'[/trx_button]').'</div>' 
+								? '<div class="sc_call_to_action_button sc_item_button">'.do_shortcode('[trx_button ' . $target . ' link="'.esc_url($link).'" icon="icon-right"]'.esc_html($link_caption).'[/trx_button]').'</div>' 
 								: '')
 							. (!empty($link2) 
-								? '<div class="sc_call_to_action_button sc_item_button">'.do_shortcode('[trx_button link="'.esc_url($link2).'" icon="icon-right"]'.esc_html($link2_caption).'[/trx_button]').'</div>' 
+								? '<div class="sc_call_to_action_button sc_item_button">'.do_shortcode('[trx_button ' . $target . ' link="'.esc_url($link2).'" icon="icon-right"]'.esc_html($link2_caption).'[/trx_button]').'</div>' 
 								: '')
 							. '</div>'
 						: '');
 
         $buttons2 = (!empty($link)
-								? '<div class="sc_call_to_action_button sc_item_button">'.do_shortcode('[trx_button size="medium" link="'.esc_url($link).'"]'.esc_html($link_caption).'[/trx_button]').'</div>'
+								? '<div class="sc_call_to_action_button sc_item_button">'.do_shortcode('[trx_button ' . $target . ' size="medium" link="'.esc_url($link).'"]'.esc_html($link_caption).'[/trx_button]').'</div>'
 								: '');
 
 		
