@@ -2500,7 +2500,10 @@ ul.sc_list_style_ul {
     right:0;
 }
 .sc_price_block.sc_price_block_style_2 .sc_price_money  {
-    font-size: 6.875rem;
+    /*change by carlos*/
+    font-size: 6rem;
+    margin-left: 8px;
+    /*end change*/
     font-weight: 500;
 }
 .sc_price_block.sc_price_block_style_2 .sc_price .sc_price_period:before {
