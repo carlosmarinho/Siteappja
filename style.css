@@ -2506,9 +2506,12 @@ li.opened > a > .open_child_menu:before {
     padding: 1.2rem 0;
 }
 
-.top_panel_style_3 .top_panel_icon {
+/*included by carlos to correct menu in layout 4*/
+.top_panel_style_4 .top_panel_icon {
     margin: 1.26rem 0 0;
 }
+/*end edited by carlos */
+
 .search_wrap .search_submit {
     width: 2.3rem;
 }
